@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function NavBar({ isLoggedIn, setIsLoggedIn }) {
   const navigate = useNavigate();
@@ -17,25 +17,25 @@ function NavBar({ isLoggedIn, setIsLoggedIn }) {
         paddingBottom: "10px",
       }}
     >
-      <a href="/" style={{ marginRight: "10px" }}>
+      <Link to="/" style={{ marginRight: "10px" }}>
         Home
-      </a>
+      </Link>
       {isLoggedIn ? (
         <>
-          <a href="/profile" style={{ marginRight: "10px" }}>
+          <Link to="/profile" style={{ marginRight: "10px" }}>
             Profile
-          </a>
-          <a href="/create" style={{ marginRight: "10px" }}>
+          </Link>
+          <Link to="/create" style={{ marginRight: "10px" }}>
             Create Post
-          </a>
+          </Link>
           <button onClick={handleLogout}>Logout</button>
         </>
       ) : (
         <>
-          <a href="/login" style={{ marginRight: "10px" }}>
+          <Link to="/login" style={{ marginRight: "10px" }}>
             Login
-          </a>
-          <a href="/register">Register</a>
+          </Link>
+          <Link to="/register">Register</Link>
         </>
       )}
     </nav>
