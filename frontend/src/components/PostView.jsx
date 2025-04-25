@@ -13,7 +13,7 @@ function PostView() {
   const isLoggedIn = !!localStorage.getItem("token");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/posts/${id}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/posts/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPost(data);
@@ -44,11 +44,14 @@ function PostView() {
     formData.append("content", content);
     if (cover) formData.append("cover_image", cover);
     try {
-      const res = await fetch(`http://localhost:5000/posts/${id}`, {
-        method: "PUT",
-        headers: { Authorization: `Bearer ${token}` },
-        body: formData,
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/posts/${id}`,
+        {
+          method: "PUT",
+          headers: { Authorization: `Bearer ${token}` },
+          body: formData,
+        }
+      );
       if (res.ok) {
         const updated = await res.json();
         setPost(updated);
@@ -71,10 +74,13 @@ function PostView() {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:5000/posts/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/posts/${id}`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       if (res.ok) {
         navigate("/");
       } else {
@@ -131,7 +137,9 @@ function PostView() {
       </p>
       {post.cover_image && (
         <img
-          src={`http://localhost:5000/uploads/${post.cover_image}`}
+          src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${
+            post.cover_image
+          }`}
           alt="cover"
           style={{ maxWidth: "300px" }}
         />

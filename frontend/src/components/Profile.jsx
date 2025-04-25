@@ -13,7 +13,7 @@ function Profile() {
       navigate("/login");
       return;
     }
-    fetch("http://localhost:5000/auth/profile", {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/profile`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {

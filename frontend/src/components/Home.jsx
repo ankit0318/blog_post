@@ -5,7 +5,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/posts`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -40,7 +40,9 @@ function Home() {
               {post.cover_image && (
                 <div>
                   <img
-                    src={`http://localhost:5000/uploads/${post.cover_image}`}
+                    src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${
+                      post.cover_image
+                    }`}
                     alt="cover"
                     style={{
                       maxWidth: "300px",

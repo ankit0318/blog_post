@@ -20,7 +20,7 @@ function CreatePost() {
     formData.append("content", content);
     if (cover) formData.append("cover_image", cover);
     try {
-      const res = await fetch("http://localhost:5000/posts", {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/posts`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
