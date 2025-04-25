@@ -22,6 +22,9 @@ function NavBar({ isLoggedIn, setIsLoggedIn }) {
       </a>
       {isLoggedIn ? (
         <>
+          <a href="/profile" style={{ marginRight: "10px" }}>
+            Profile
+          </a>
           <a href="/create" style={{ marginRight: "10px" }}>
             Create Post
           </a>
