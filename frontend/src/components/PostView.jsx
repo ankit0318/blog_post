@@ -20,7 +20,7 @@ function PostView() {
         setTitle(data.title);
         setContent(data.content);
       });
-  }, [id]);
+  }, [id, editing]);
 
   const handleEdit = () => setEditing(true);
   const handleCancel = () => {
