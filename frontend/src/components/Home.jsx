@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -18,7 +18,7 @@ function Home() {
   return (
     <div>
       <h2>All Blog Posts</h2>
-      <a href="/create">Create New Post</a>
+      <Link to="/create">Create New Post</Link> 
       <ul>
         {posts.map((post) => (
           <li
