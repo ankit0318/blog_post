@@ -16,6 +16,12 @@ body {
   text-align: left;
 }
 
+@media (max-width: 640px) {
+  #root {
+    margin:5px;
+    border-radius: 0;
+  }
+}
 nav {
   display: flex;
   align-items: center;

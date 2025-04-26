@@ -24,6 +24,7 @@
 ## 📋 Tech Stack
 
 ### Backend
+
 - **Node.js** - JavaScript runtime
 - **Express** - Web framework
 - **MySQL** - Database
@@ -31,6 +32,7 @@
 - **Multer** - File uploads
 
 ### Frontend
+
 - **React** - UI library
 - **Vite** - Build tool
 - **CSS** - Styling
@@ -38,6 +40,7 @@
 ## 🔧 Installation & Setup
 
 ### Prerequisites
+
 - Node.js (v14 or newer)
 - MySQL
 - Git
@@ -45,12 +48,14 @@
 ### Backend Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/blog_post.git
    cd blog_post
    ```
 
 2. **Install dependencies**
+
    ```bash
    cd backend
    npm install
@@ -58,6 +63,7 @@
 
 3. **Set up environment variables**
    Create a `.env` file in the backend directory:
+
    ```
    PORT=5000
    DB_HOST=localhost
@@ -68,6 +74,7 @@
    ```
 
 4. **Create the database**
+
    ```bash
    mysql -u root -p < schema.sql
    # Or run:
@@ -83,12 +90,14 @@
 ### Frontend Setup
 
 1. **Install dependencies**
+
    ```bash
    cd ../frontend
    npm install
    ```
 
 2. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -101,10 +110,12 @@
 ## 🔍 API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register` - Register a new user
 - `POST /api/auth/login` - Log in a user
 
 ### Posts
+
 - `GET /api/posts` - Get all posts
 - `GET /api/posts/:id` - Get a specific post
 - `POST /api/posts` - Create a new post (requires auth)
@@ -114,11 +125,13 @@
 ## 🌐 Deployment
 
 ### Backend
+
 - Deploy to any Node.js hosting service (Heroku, Render, DigitalOcean)
 - Configure environment variables
 - Set up a MySQL database instance
 
 ### Frontend
+
 - Build the React app (`npm run build`)
 - Deploy static files to Netlify, Vercel, or GitHub Pages
 
@@ -147,7 +160,7 @@ CREATE TABLE posts (
 
 ## 📸 Screenshots
 
-*[Add screenshots of your application here]*
+_[Add screenshots of your application here]_
 
 ## 🤝 Contributing
 
