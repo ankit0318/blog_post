@@ -2,9 +2,10 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
+[![Express.js](https://img.shields.io/badge/Express.js-5.1.0-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)](https://reactjs.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=flat&logo=react&logoColor=black)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.3.1-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 
 <div align="center">
   <img src="frontend/src/assets/react.svg" alt="BlogPost Logo" width="120" />
@@ -15,33 +16,37 @@
 
 - **User Authentication** - Secure JWT-based login and registration system
 - **Content Management** - Create, read, update, and delete blog posts
-- **Media Support** - Upload and manage images for blog posts
-- **Responsive Design** - Works on desktop and mobile devices
-- **User Profiles** - Author information and post history
-- **RESTful API** - Well-structured backend API for easy integration
+- **Media Support** - Upload and manage images for blog posts with cover image functionality
+- **Responsive Design** - Works seamlessly on desktop and mobile devices
+- **User Profiles** - Author information, post history, and profile avatar generation
+- **RESTful API** - Well-structured backend API with Swagger documentation
 - **MySQL Database** - Reliable data storage with efficient queries
+- **API Documentation** - Interactive Swagger UI for API testing and documentation
 
 ## 📋 Tech Stack
 
 ### Backend
 
 - **Node.js** - JavaScript runtime
-- **Express** - Web framework
-- **MySQL** - Database
-- **JWT** - Authentication
-- **Multer** - File uploads
+- **Express v5.1.0** - Modern web framework
+- **MySQL v3.14.0** (mysql2) - Database
+- **JWT v9.0.2** - Authentication
+- **Multer v1.4.5** - File uploads
+- **Swagger v6.2.8** - API documentation
+- **bcryptjs v3.0.2** - Password hashing
 
 ### Frontend
 
-- **React** - UI library
-- **Vite** - Build tool
-- **CSS** - Styling
+- **React v19.0.0** - UI library (Latest version)
+- **React Router v7.5.1** - Navigation
+- **Vite v6.3.1** - Fast build tool
+- **Modern CSS** - Responsive styling
 
 ## 🔧 Installation & Setup
 
 ### Prerequisites
 
-- Node.js (v14 or newer)
+- Node.js (v16 or newer)
 - MySQL
 - Git
 
@@ -71,13 +76,13 @@
    DB_PASSWORD=yourpassword
    DB_NAME=blog_db
    JWT_SECRET=your_jwt_secret
+   UPLOAD_DIR=uploads
    ```
 
 4. **Create the database**
 
    ```bash
-   mysql -u root -p < schema.sql
-   # Or run:
+   # Run these helper scripts:
    node createDatabase.js
    node createTables.js
    ```
@@ -96,13 +101,20 @@
    npm install
    ```
 
-2. **Start the development server**
+2. **Set up environment variables**
+   Create a `.env` file in the frontend directory:
+
+   ```
+   VITE_API_BASE_URL=http://localhost:5000
+   ```
+
+3. **Start the development server**
 
    ```bash
    npm run dev
    ```
 
-3. **Build for production**
+4. **Build for production**
    ```bash
    npm run build
    ```
@@ -111,29 +123,35 @@
 
 ### Authentication
 
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Log in a user
+- `POST /auth/register` - Register a new user
+- `POST /auth/login` - Log in a user
+- `GET /auth/profile` - Get user profile (requires auth)
 
 ### Posts
 
-- `GET /api/posts` - Get all posts
-- `GET /api/posts/:id` - Get a specific post
-- `POST /api/posts` - Create a new post (requires auth)
-- `PUT /api/posts/:id` - Update a post (requires auth)
-- `DELETE /api/posts/:id` - Delete a post (requires auth)
+- `GET /posts` - Get all posts
+- `GET /posts/:id` - Get a specific post
+- `POST /posts` - Create a new post (requires auth)
+- `PUT /posts/:id` - Update a post (requires auth)
+- `DELETE /posts/:id` - Delete a post (requires auth)
+
+### API Documentation
+
+- `/docs` - Interactive Swagger UI documentation
 
 ## 🌐 Deployment
 
 ### Backend
 
-- Deploy to any Node.js hosting service (Heroku, Render, DigitalOcean)
-- Configure environment variables
+- Currently deployed on Render
+- Configure environment variables on hosting platform
 - Set up a MySQL database instance
 
 ### Frontend
 
 - Build the React app (`npm run build`)
-- Deploy static files to Netlify, Vercel, or GitHub Pages
+- Deploy static files to Render (using \_redirects for SPA routing)
+- Current deployment: https://blog-post-ltyk.onrender.com
 
 ## 📝 Database Schema
 
@@ -158,9 +176,35 @@ CREATE TABLE posts (
 );
 ```
 
-## 📸 Screenshots
+## 💻 Project Structure
 
-_[Add screenshots of your application here]_
+```
+blog_post/
+├── backend/                # Express API
+│   ├── controllers/        # Route logic
+│   ├── middleware/         # Auth middleware
+│   ├── models/             # Database models
+│   ├── routes/             # API endpoints
+│   ├── uploads/            # User uploaded images
+│   ├── server.js           # Main application file
+│   └── swagger.js          # API documentation config
+└── frontend/               # React application
+    ├── public/             # Static assets
+    └── src/
+        ├── components/     # React components
+        ├── assets/         # Images and resources
+        ├── App.jsx         # Main application component
+        └── main.jsx        # Entry point
+```
+
+## 📸 Key Features
+
+- **JWT Authentication**: Secure login and registration system
+- **Responsive UI**: Modern design that works on all devices
+- **Profile Avatars**: Dynamic user avatar generation from initials
+- **Image Uploads**: Cover image upload and management for posts
+- **Interactive API Docs**: Testing and exploring the API via Swagger UI
+- **SPA Routing**: Seamless navigation with React Router
 
 ## 🤝 Contributing
 
@@ -180,11 +224,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Express.js](https://expressjs.com/)
 - [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
 - [MySQL](https://www.mysql.com/)
 - [JSON Web Tokens](https://jwt.io/)
+- [Swagger](https://swagger.io/)
+- [Render](https://render.com/) for hosting
 
 ---
 
-<div align="center">
-  Made with ❤️ by [Your Name]
-</div>
+

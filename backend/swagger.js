@@ -14,14 +14,15 @@ const options = {
       },
     },
     servers: [
-      {
-        url: "http://localhost:5000",
-        description: "Development server",
-      },
+      
       {
         url: "https://blog-post-ltyk.onrender.com",
         description: "Production server",
       },
+      {
+        url: "http://localhost:5000",
+        description: "Development server",
+      }
     ],
     components: {
       securitySchemes: {
