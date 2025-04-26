@@ -36,7 +36,7 @@ function CreatePost() {
     }
   };
   return (
-    <div>
+    <div >
       <h2>Create Post</h2>
       <form onSubmit={handleSubmit}>
         <input

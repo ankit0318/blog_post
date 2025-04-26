@@ -12,7 +12,9 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://blog-post-frontend-prvt.onrender.com', // Your frontend URL
+}));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Configure Swagger docs
