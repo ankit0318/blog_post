@@ -22,11 +22,12 @@ function NavBar({ isLoggedIn, setIsLoggedIn }) {
       </Link>
       {isLoggedIn ? (
         <>
-          <Link to="/profile" style={{ marginRight: "10px" }}>
-            Profile
-          </Link>
+          
           <Link to="/create" style={{ marginRight: "10px" }}>
             Create Post
+          </Link>
+          <Link to="/profile" style={{ marginRight: "10px" }}>
+            Profile
           </Link>
           <button onClick={handleLogout}>Logout</button>
         </>
