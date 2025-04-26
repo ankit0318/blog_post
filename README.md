@@ -17,7 +17,7 @@
 <br/>
 <a href='https://blog-post-ltyk.onrender.com/'>Blog-Post-Backend-Live-url</a>
 <br/>
-<a href='https://blog-post-ltyk.onrender.com/docs'>Swagger Docs url</a>
+<a href='https://blog-post-ltyk.onrender.com/docs'>Swagger-Blog-post-Docs-url</a>
 <br/>
 
 ## 🚀 Features
